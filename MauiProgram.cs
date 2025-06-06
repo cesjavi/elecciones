@@ -2,8 +2,7 @@
 using CommunityToolkit.Mvvm;
 using CommunityToolkit.Maui;
 using System.Globalization;
-CultureInfo.DefaultThreadCurrentCulture = new CultureInfo("es-AR");
-CultureInfo.DefaultThreadCurrentUICulture = new CultureInfo("es-AR");
+
 
 namespace Elecciones
 {
@@ -11,7 +10,8 @@ namespace Elecciones
     {
         public static MauiApp CreateMauiApp()
         {
-            
+            CultureInfo.DefaultThreadCurrentCulture = new CultureInfo("es-AR");
+            CultureInfo.DefaultThreadCurrentUICulture = new CultureInfo("es-AR");
 
             var builder = MauiApp.CreateBuilder();
             builder

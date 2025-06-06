@@ -33,7 +33,7 @@ public partial class VotantesPage : ContentPage
         int votaron = votantes.Count(v => v.HaVotado);
         double porcentaje = total > 0 ? (votaron * 100.0 / total) : 0;
 
-        await DisplayAlert("Estad�sticas",
+        await DisplayAlert("Estadísticas",
             $"Total de votantes: {total}\n" +
             $"Votaron: {votaron}\n" +
             $"Porcentaje: {porcentaje:F2}%",
@@ -66,5 +66,10 @@ public partial class VotantesPage : ContentPage
                 db.SaveChanges();
             }
         }
+    }
+
+    private async void OnFinalizarClicked(object sender, EventArgs e)
+    {
+        await DisplayAlert("Finalizar", "Finalizar la elección actual", "OK");
     }
 }

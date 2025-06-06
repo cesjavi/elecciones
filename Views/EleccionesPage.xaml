@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Elecciones.Views.EleccionesPage"
+             Title="EleccionesPage">
+    <VerticalStackLayout Padding="20" Spacing="10">
+        <Label Text="Seleccione una elección" FontSize="20" />
+
+        <CollectionView x:Name="eleccionesView"
+                        SelectionMode="Single"
+                        SelectionChanged="OnEleccionSeleccionada">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame BorderColor="Gray" Padding="10" Margin="5">
+                        <Label Text="{Binding Nombre}" FontSize="18" />
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </VerticalStackLayout>
+</ContentPage>

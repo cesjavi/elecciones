@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Elecciones.MainPage">
+    <VerticalStackLayout Padding="20" Spacing="25" VerticalOptions="Center">
+        <Label Text="Fiscalizador de Elecciones"
+            FontSize="24"
+            HorizontalOptions="Center" />
+
+        <Button Text="Elecciones"
+             Clicked="OnEleccionesClicked" />
+
+        <Button Text="Configuración"
+             Clicked="OnConfiguracionClicked" />
+    </VerticalStackLayout>
+
+</ContentPage>

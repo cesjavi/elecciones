@@ -1,0 +1,42 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Elecciones.Views.VotantesConfigPage"
+             Title="Votantes">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="15">
+            <Label Text="Seleccione una elección" />
+            <Picker x:Name="eleccionPicker"
+                    ItemDisplayBinding="{Binding Nombre}"
+                    SelectedIndexChanged="OnEleccionSeleccionada" />
+
+            <Button Text="Importar CSV de Votantes"
+                    Clicked="OnImportarCSVClicked"
+                    BackgroundColor="LightGreen"
+                    TextColor="Black" />
+
+            <Label Text="Agregar votante manualmente" FontAttributes="Bold" />
+            <Entry x:Name="nombreEntry" Placeholder="Nombre" />
+            <Entry x:Name="apellidoEntry" Placeholder="Apellido" />
+            <Entry x:Name="dniEntry" Placeholder="DNI" Keyboard="Numeric" />
+            <Entry x:Name="numeroOrdenEntry" Placeholder="Número de orden" Keyboard="Numeric" />
+
+            <Button Text="Guardar votante"
+                    Clicked="OnGuardarVotanteClicked"
+                    BackgroundColor="LightGray" />
+
+            <Label Text="Listado de votantes" FontAttributes="Bold" />
+            <CollectionView x:Name="votantesView" SelectionMode="None">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Padding="5" ColumnDefinitions="3*,Auto,Auto">
+                            <Label Text="{Binding NombreCompleto}" Grid.Column="0" VerticalOptions="Center" />
+                            <Button Text="✏️" Clicked="OnEditarVotanteClicked" CommandParameter="{Binding}" />
+                            <Button Text="🗑️" Clicked="OnEliminarVotanteClicked" CommandParameter="{Binding}" />
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

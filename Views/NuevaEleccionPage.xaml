@@ -1,0 +1,28 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Elecciones.Views.NuevaEleccionPage"
+             Title="Nueva Elección">
+
+    <VerticalStackLayout Padding="20" Spacing="15">
+        <Label Text="Nueva Elección" FontSize="20" />
+        <Entry x:Name="nombreEleccionEntry" Placeholder="Nombre de la elección" />
+        <DatePicker x:Name="fechaPicker" />
+        <Button Text="Guardar" Clicked="OnGuardarClicked" BackgroundColor="Purple" TextColor="White" />
+        <Label x:Name="estadoLabel" IsVisible="False" TextColor="Green" />
+        <Label Text="Elecciones existentes" FontAttributes="Bold" />
+
+        <CollectionView x:Name="eleccionesView" SelectionMode="None">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid Padding="5" ColumnDefinitions="3*,Auto" RowDefinitions="Auto">
+                        <Label Text="{Binding NombreConFecha}" Grid.Column="0" VerticalOptions="Center" />
+                        <Button Text="🗑️" Clicked="OnEliminarEleccionClicked"
+                        Grid.Column="1" Margin="5"
+                        CommandParameter="{Binding}" />
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+    </VerticalStackLayout>
+</ContentPage>

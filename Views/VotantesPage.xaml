@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Elecciones.Views.VotantesPage"
+             Title="VotantesPage">
+    <VerticalStackLayout Padding="10" Spacing="10">
+        <SearchBar x:Name="buscador"
+                   Placeholder="Buscar por nombre, apellido o DNI"
+                   TextChanged="OnBuscarChanged" />
+        <Button Text="Ver estadísticas"
+        Clicked="OnEstadisticasClicked"
+        BackgroundColor="LightBlue"
+        TextColor="Black" />
+        <CollectionView x:Name="votantesView">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid Padding="5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <Label Text="{Binding NombreCompleto}" Grid.Column="0" />
+                        <CheckBox IsChecked="{Binding HaVotado}" CheckedChanged="OnCheckChanged" Grid.Column="1"/>
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </VerticalStackLayout>
+</ContentPage>

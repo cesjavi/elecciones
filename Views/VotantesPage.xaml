@@ -2,7 +2,10 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Elecciones.Views.VotantesPage"
-             Title="VotantesPage">
+             Title="Votantes">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Finalizar" Order="Primary" Clicked="OnFinalizarClicked" />
+    </ContentPage.ToolbarItems>
     <VerticalStackLayout Padding="10" Spacing="10">
         <SearchBar x:Name="buscador"
                    Placeholder="Buscar por nombre, apellido o DNI"

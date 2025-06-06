@@ -1,3 +1,5 @@
+using Elecciones.Models;
+
 namespace Elecciones.Views;
 
 public partial class EleccionesPage : ContentPage
@@ -21,13 +23,10 @@ public partial class EleccionesPage : ContentPage
     {
         if (e.CurrentSelection.FirstOrDefault() is Eleccion eleccion)
         {
-            // Acá luego navegaremos a la pantalla de votantes:
-            await DisplayAlert("Elección seleccionada", $"ID: {eleccion.Id}\nNombre: {eleccion.Nombre}", "OK");
-
-            // Luego: await Navigation.PushAsync(new VotantesPage(eleccion));
+            await Navigation.PushAsync(new VotantesPage(eleccion));
         }
 
-        // Limpiar selección
+        // Limpiar selecciÃ³n
         eleccionesView.SelectedItem = null;
     }
 }

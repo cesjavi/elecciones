@@ -43,17 +43,18 @@ public partial class LoginPage : ContentPage
     {
         var username = usernameEntry.Text?.Trim();
         var password = passwordEntry.Text;
+        var dni = dniEntry.Text?.Trim(); // Assuming dniEntry is a valid input field for DNI  
 
-        if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
+        if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password) || string.IsNullOrEmpty(dni))
         {
-            await DisplayAlert("Error", "Ingrese usuario y contraseña", "OK");
+            await DisplayAlert("Error", "Ingrese usuario, contraseña y DNI", "OK");
             return;
         }
 
         var existing = await _authService.GetUserAsync(username);
         if (existing == null)
         {
-            await _authService.RegisterAsync(username, password);
+            await _authService.RegisterAsync(username, password, dni);
             Preferences.Set("username", username);
             Application.Current.MainPage = new NavigationPage(new MainPage());
         }

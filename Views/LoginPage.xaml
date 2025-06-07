@@ -5,7 +5,9 @@
              Title="Login">
     <VerticalStackLayout Padding="20" Spacing="15" VerticalOptions="Center">
         <Entry x:Name="usernameEntry" Placeholder="Usuario" />
+        <Entry x:Name="dniEntry" Placeholder="DNI" />
         <Entry x:Name="passwordEntry" Placeholder="Contraseña" IsPassword="True" />
         <Button Text="Iniciar sesión" Clicked="OnLoginClicked" />
+        <Button Text="Registrarse" Clicked="OnRegisterClicked" />
     </VerticalStackLayout>
 </ContentPage>

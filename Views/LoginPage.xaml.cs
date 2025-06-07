@@ -39,28 +39,9 @@ public partial class LoginPage : ContentPage
         }
     }
 
-    private async void OnRegisterClicked(object sender, EventArgs e)
+
+    private async void OnNavigateRegister(object sender, EventArgs e)
     {
-        var username = usernameEntry.Text?.Trim();
-        var password = passwordEntry.Text;
-        var dni = dniEntry.Text?.Trim(); // Assuming dniEntry is a valid input field for DNI  
-
-        if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password) || string.IsNullOrEmpty(dni))
-        {
-            await DisplayAlert("Error", "Ingrese usuario, contraseña y DNI", "OK");
-            return;
-        }
-
-        var existing = await _authService.GetUserAsync(username);
-        if (existing == null)
-        {
-            await _authService.RegisterAsync(username, password, dni);
-            Preferences.Set("username", username);
-            Application.Current.MainPage = new NavigationPage(new MainPage());
-        }
-        else
-        {
-            await DisplayAlert("Advertencia", "El usuario ya existe", "OK");
-        }
+        await Navigation.PushAsync(new RegisterPage());
     }
 }

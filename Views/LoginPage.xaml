@@ -7,5 +7,6 @@
         <Entry x:Name="usernameEntry" Placeholder="Usuario" />
         <Entry x:Name="passwordEntry" Placeholder="Contraseña" IsPassword="True" />
         <Button Text="Iniciar sesión" Clicked="OnLoginClicked" />
+        <Button Text="Registrarse" Clicked="OnRegisterClicked" />
     </VerticalStackLayout>
 </ContentPage>

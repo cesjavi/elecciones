@@ -9,3 +9,6 @@ Provide a MongoDB connection string using the `MONGODB_CONNECTION` environment v
 ## Authentication
 
 Users are stored in MongoDB with passwords hashed using BCrypt. On first launch a login screen is presented. After a successful login the username is saved and the next time the app starts it navigates directly to the main page.
+
+Each user document now includes a `Dni` property stored in the `dni` field.
+This value is collected during registration to uniquely identify the voter.

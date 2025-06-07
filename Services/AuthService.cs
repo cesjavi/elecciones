@@ -24,7 +24,7 @@ namespace Elecciones.Services
             return await _users.Find(u => u.Username == username).FirstOrDefaultAsync();
         }
 
-        public async Task<bool> RegisterAsync(string username, string password)
+        public async Task<bool> RegisterAsync(string username, string password, string dni)
         {
             var existing = await GetUserAsync(username);
             if (existing != null)
@@ -33,7 +33,8 @@ namespace Elecciones.Services
             var user = new User
             {
                 Username = username,
-                PasswordHash = BCrypt.Net.BCrypt.HashPassword(password)
+                PasswordHash = BCrypt.Net.BCrypt.HashPassword(password),
+                Dni = dni
             };
             await _users.InsertOneAsync(user);
             return true;

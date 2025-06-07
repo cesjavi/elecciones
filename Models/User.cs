@@ -9,5 +9,8 @@ public class User
 
     public string Username { get; set; }
 
+    [BsonElement("dni")]
+    public string Dni { get; set; }
+
     public string PasswordHash { get; set; }
 }

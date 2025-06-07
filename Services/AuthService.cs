@@ -9,7 +9,12 @@ namespace Elecciones.Services
 
         public AuthService(string connectionString)
         {
-            var client = new MongoClient(connectionString = "mongodb://localhost:27017");
+            if (string.IsNullOrWhiteSpace(connectionString))
+            {
+                connectionString = "mongodb://localhost:27017";
+            }
+
+            var client = new MongoClient(connectionString);
             var database = client.GetDatabase("elecciones");
             _users = database.GetCollection<User>("users");
         }

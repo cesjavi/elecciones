@@ -12,3 +12,14 @@ Users are stored in MongoDB with passwords hashed using BCrypt. On first launch 
 
 Each user document now includes a `Dni` property stored in the `dni` field.
 This value is collected during registration to uniquely identify the voter.
+
+## Registration screen
+
+The app now contains a dedicated **RegisterPage** that collects username, DNI
+and password. New users are stored in MongoDB and, on success, the main page is
+shown immediately.
+
+## Voting analysis
+
+From the list of voters you can open an **Análisis** screen that displays the
+total number of voters, how many have voted and the percentage of participation.

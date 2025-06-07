@@ -31,13 +31,8 @@ public partial class VotantesPage : ContentPage
     {
         int total = votantes.Count;
         int votaron = votantes.Count(v => v.HaVotado);
-        double porcentaje = total > 0 ? (votaron * 100.0 / total) : 0;
 
-        await DisplayAlert("Estadísticas",
-            $"Total de votantes: {total}\n" +
-            $"Votaron: {votaron}\n" +
-            $"Porcentaje: {porcentaje:F2}%",
-            "OK");
+        await Navigation.PushAsync(new AnalisisPage(total, votaron));
     }
 
     private void OnBuscarChanged(object sender, TextChangedEventArgs e)

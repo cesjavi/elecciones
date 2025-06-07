@@ -1,8 +1,7 @@
 ﻿using Microsoft.Extensions.Logging;
-using CommunityToolkit.Mvvm;
 using CommunityToolkit.Maui;
-using Elecciones.Services;
 using System.Globalization;
+using Elecciones.Services;
 
 
 namespace Elecciones

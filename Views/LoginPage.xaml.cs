@@ -1,6 +1,8 @@
 using Microsoft.Maui.Controls;
 using Microsoft.Maui.Storage;
 using Elecciones.Services;
+using Microsoft.Maui.ApplicationModel;
+
 
 namespace Elecciones.Views;
 
@@ -11,7 +13,7 @@ public partial class LoginPage : ContentPage
     public LoginPage()
     {
         InitializeComponent();
-        _authService = MauiApplication.Current.Services.GetService<AuthService>();
+        _authService = IPlatformApplication.Current?.Services?.GetService<AuthService>();
     }
 
     private async void OnLoginClicked(object sender, EventArgs e)
